@@ -10,19 +10,27 @@ let finalscoreplayer1=document.getElementById('finalScore-1'); //second player f
 let lightplayer0=document.getElementById('live-0');   //greelight of player 0
 let lightplayer1=document.getElementById('live-1');   //greelight of player 1
 let rolldicebtn=document.querySelector('.btn-roll-dice');
+let restartbtn=document.querySelector('.btn-reset');
+start();
+
+// start the game
+function start(){
+    finalscoreplayer0.textContent='0'; //setting player0 score to 0
+    finalscoreplayer1.textContent='0'; //setting player1 score to 0
+    diceimg.style.display='none';  //removing dice image in start
+    lightplayer0.style.display='none'; // removing light from player0 panel
+    lightplayer1.style.display='none'; // removing light from player1 panel
+    document.getElementById(`player-0-score-block`).innerHTML='';
+    document.getElementById(`player-1-score-block`).innerHTML='';
+    playerscores=[0,0];
+    liveplayer=0;
+}
 
 
+restartbtn.addEventListener('click',()=>{
+    start();
+});
 
-
-finalscoreplayer0.textContent='0'; //setting player0 score to 0
-finalscoreplayer1.textContent='0'; //setting player1 score to 0
-
-
-diceimg.style.display='none';  //removing dice image in start
-
-
-lightplayer0.style.display='none'; // removing light from player0 panel
-lightplayer1.style.display='none'; // removing light from player1 panel
 
 // logic to display dice numbers
 rolldicebtn.addEventListener('click',()=>{
@@ -60,6 +68,3 @@ const scoreblock=()=>{
     }
     
 }
-// diceimg.addEventListener('click',()=>{
-//     console.log(playerscores[0]);
-// })
